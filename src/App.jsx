@@ -26,22 +26,49 @@
 
 // export default App
 
-import Hero from './components/Hero'
-import HomeCards from './components/HomeCards';
-import JobListings from './components/JobListings';
-import Navbar from './components/Navbar'
+
+
+// import {Route,createBrowserRouter,RouterProvider} from 'react-router-dom';
+
+// import HomePage from './pages/HomePage';
+// import MainLayout from './layout/MainLayout';
+import { Outlet } from 'react-router';
+import Navbar from './components/NavBar';
 const App = () => {
+  //older version 2
+  // const router = createBrowserRouter(
+  //   [
+  //     {
+  //       path: '/', element: <MainLayout />,
+  //       children: [
+  //         { index: true, element: <HomePage /> }
+  //       ]
+  //     }
+  //   ]
+
+  // older version 1
+    // <Route path = '/' element = {<MainLayout/>}>
+    //   <Route index element={<HomePage/>} />
+    // </Route>//this is the layout and then we have the home page
+  // );
+  //so using this and if normal home route (/) then we use index else we define the route using the path attribute and then we use the route component and then we pass the element and then we will use the RouterProvider and then we will pass the router to it
+
+
   return (
+    //(older version setup) <RouterProvider route = {router}></RouterProvider>
     <>
-      <Navbar />
-      <Hero
-        title="Become a React Developer"
-        subtitle="Find the React job that fits your skill set"
-      />
-      <HomeCards/>
-      <JobListings />
+      <Navbar/>
+      <Outlet/>
     </>
   );
 }
+
+
+//so to have the layout common to all pages we have this and also this will be added in route in main.jsx and also all routes under that will have this as layout(and if route is index then direct default children type else other path then to route+path will be taken)
+
+//we will have access to those using the outlet component and then extra to that we can add others which will be common to all pages
+
+//to add multiple pages we need to use react-router-dom package
+
 
 export default App
