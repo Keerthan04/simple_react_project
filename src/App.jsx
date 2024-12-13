@@ -34,6 +34,9 @@
 // import MainLayout from './layout/MainLayout';
 import { Outlet } from 'react-router';
 import Navbar from './components/NavBar';
+//to use the toastify we have to import the toast container and also the css file and it goes into the layout component(so here we have it as app)
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 const App = () => {
   //older version 2
   // const router = createBrowserRouter(
@@ -59,6 +62,7 @@ const App = () => {
     <>
       <Navbar/>
       <Outlet/>
+      <ToastContainer position="top-center" autoClose={3000}  />
     </>
   );
 }
